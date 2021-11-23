@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AccueilController;
+use App\Http\Controllers\ConnectController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +15,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/acceuil', [AccueilController::class, 'welcolme'])->name('acceuil');
+
+Route::get('/inscription', [ConnectController::class, 'inscription'])->name('inscription');
+
+Route::get('/', [ConnectController::class, 'connexion'])->name('connect');
+
+Route::get('/contact', [AccueilController::class, 'contact'])->name('contact');
+
+
+
