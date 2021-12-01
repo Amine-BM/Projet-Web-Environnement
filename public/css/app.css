@@ -31920,6 +31920,22 @@ video {
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+.im{
+  height: 12rem;
+  width: 12rem;
+  border-radius: 9999px;
+  -o-object-position: center;
+     object-position: center;
+}
+
+.title{
+}
+
+.icon{
+  height: 12rem;
+  width: 12rem
+}
+
 @media (min-width: 640px) {
   .sm\:container {
     width: 100%;
@@ -188259,3 +188275,4 @@ video {
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   }
 }
+
