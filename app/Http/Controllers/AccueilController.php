@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 class AccueilController {
     public function welcolme(){
-        return view('acceuil');
+        return view('accueil');
     }
 
     public function connexion(){
@@ -14,4 +14,22 @@ class AccueilController {
     public function contact(){
         return view('contact');
     }
+
+    public function maisons(){
+        return view('maisons.maisons');
+    }
+
+    public function appartements(){
+        return view('appartements.appartements');
+    }
+
+    public function etreplusvert(){
+        return view('etreplusvert');
+    }
+
+    public function deconnexion(){
+        return view('connexion');
+    }
+
+
 }
