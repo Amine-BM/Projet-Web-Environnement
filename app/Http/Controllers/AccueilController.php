@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 class AccueilController {
     public function welcolme(){
-        return view('acceuil');
+        return view('welcome');
     }
 
     public function connexion(){
