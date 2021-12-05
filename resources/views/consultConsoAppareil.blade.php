@@ -1,4 +1,4 @@
 @extends('layouts.app')
 @section('content')
-    <h1>Accueil</h1>
+    <h1>Je consulte la conso de mes appareils</h1>
 @endsection
