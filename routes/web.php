@@ -14,7 +14,7 @@ use App\Http\Controllers\ConnectController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+Route::get('/welcome', function() {return view('welcome');});
 Route::get('/acceuil', [AccueilController::class, 'welcolme'])->name('acceuil');
 
 Route::get('/inscription', [ConnectController::class, 'inscription'])->name('inscription');
@@ -27,3 +27,7 @@ Route::get('/contact', [AccueilController::class, 'contact'])->name('contact');
 
 
 
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+    return view('dashboard');
+})->name('dashboard');
