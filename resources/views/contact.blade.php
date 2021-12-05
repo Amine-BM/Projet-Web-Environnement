@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('dashboard')
 @section('content')
    <div class="p-8">
     <h1 class="title">Contactez-nous</h1>

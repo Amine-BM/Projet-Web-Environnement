@@ -1,17 +1,32 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="{{ asset('css/app.css')}}">
-    <link rel="stylesheet" href="{{ asset('css/style.css')}}">
-    <title>Mon application environnement</title>
-</head>
-<body>
-<script src="{{asset('js/app.js')}}"></script>
-    @include('partials.nav')
-        @yield('content')
-    </div>
-</body>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="csrf-token" content="{{ csrf_token() }}">
+        <link rel="stylesheet" href={{asset('css/app.css')}}>
+        <title>Mon application environnement</title>
+        <!-- Scripts -->
+        <script src="{{ mix('js/app.js') }}" defer></script>
+    </head>
+    <body class="font-sans antialiased">
+
+        <div class="flex flex-col min-h-screen bg-gray-100">
+            @livewire('navigation-menu')
+
+            <!-- Page Heading -->
+            @if (isset($header))
+                <header class="bg-white shadow">
+                    <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+                        {{ $header }}
+                    </div>
+                </header>
+            @endif
+
+            <!-- Page Content -->
+            <div class="flex flex-col">
+                {{ $slot }}
+            </div>
+        </div>
+    </body>
 </html>
