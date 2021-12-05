@@ -1,24 +1,21 @@
+const defaultTheme = require('tailwindcss/defaultTheme');
+
 module.exports = {
-  purge: [],
-  darkMode: false, // or 'media' or 'class'
-  theme: {
-    extend: {
-      width: {
-        '1/7': '14.2857143%',
-        '2/7': '28.5714286%',
-        '3/7': '42.8571429%',
-        '4/7': '57.1428571%',
-        '5/7': '71.4285714%',
-        '6/7': '85.7142857%',
-        '9/20': '45.00%',
-        '12/25': '48.00%',
-        '23/50': '46.00%',
-        '47/100': '47.00%'
-      }   
+    mode: 'jit',
+    purge: [
+        './vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php',
+        './vendor/laravel/jetstream/**/*.blade.php',
+        './storage/framework/views/*.php',
+        './resources/views/**/*.blade.php',
+    ],
+
+    theme: {
+        extend: {
+            fontFamily: {
+                sans: ['Nunito', ...defaultTheme.fontFamily.sans],
+            },
+        },
     },
-  },
-  variants: {
-    extend: {},
-  },
-  plugins: [],
-}
+
+    plugins: [require('@tailwindcss/forms'), require('@tailwindcss/typography')],
+};

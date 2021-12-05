@@ -7,8 +7,8 @@
         display: flex; justify-content:center; width:100%; height: auto;
     }
 
-    nav{
-        display: flex; justify-content:flex-start; width:90%; background-color: whitesmoke; border-radius: 4px; margin: 24px;
+    .navB{
+        display: flex; justify-content:flex-start; width:95%; background-color: whitesmoke; border-radius: 4px; margin: 24px;
     }
 
     .deco{
@@ -26,8 +26,8 @@
     <div class="deco">
         <a id="deconnexion" href="{{route('connect')}} "> Se deconnecter</a>
     </div>
-    <nav>
-        <p ><a onmouseover="mouseOver()" id="accueil" href="{{route('accueil')}} "> L'accueil</a></p>
+    <nav class="navB">
+        <p ><a id="acceuil" href="{{route('acceuil')}} "> L'accueil</a></p>
         <p ><a id="contact" href="{{route('contact')}} ">Page contact</a></p>
         <p ><a id="connexion" href="{{route('connect')}} ">Connecter vous</a></p>
         <p ><a id="maisons" href="{{route('maisons')}} ">Maisons</a></p>

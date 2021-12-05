@@ -15,7 +15,8 @@ use App\Http\Controllers\ConnectController;
 |
 */
 
-Route::get('/accueil', [AccueilController::class, 'welcolme'])->name('accueil');
+Route::get('/welcome', function() {return view('welcome');});
+Route::get('/acceuil', [AccueilController::class, 'welcolme'])->name('acceuil');
 
 Route::get('/inscription', [ConnectController::class, 'inscription'])->name('inscription');
 Route::post('/inscription', [ConnectController::class, 'handleInscription'])->name('handleInscription');
@@ -35,3 +36,7 @@ Route::get('/etreplusvert', [AccueilController::class, 'etreplusvert'])->name('v
 
 
 
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+    return view('dashboard');
+})->name('dashboard');
