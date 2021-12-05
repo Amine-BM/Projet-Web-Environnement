@@ -14,6 +14,7 @@ use App\Http\Controllers\ConnectController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
 Route::get('/welcome', function() {return view('welcome');});
 Route::get('/acceuil', [AccueilController::class, 'welcolme'])->name('acceuil');
 
@@ -24,6 +25,14 @@ Route::get('/', [ConnectController::class, 'connexion'])->name('connect');
 Route::post('/', [ConnectController::class, 'handleConnexion'])->name('handleConnexion');
 
 Route::get('/contact', [AccueilController::class, 'contact'])->name('contact');
+
+Route::get('/maisons', [AccueilController::class, 'maisons'])->name('maisons');
+
+Route::get('/appartements', [AccueilController::class, 'appartements'])->name('appartements');
+
+Route::get('/etreplusvert', [AccueilController::class, 'etreplusvert'])->name('vert');
+
+
 
 
 
