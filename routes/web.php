@@ -16,7 +16,7 @@ use App\Http\Controllers\ConnectController;
 */
 
 Route::get('/welcome', function() {return view('welcome');});
-Route::get('/acceuil', [AccueilController::class, 'welcolme'])->name('acceuil');
+Route::get('/accueil', [AccueilController::class, 'welcolme'])->name('accueil');
 
 Route::get('/inscription', [ConnectController::class, 'inscription'])->name('inscription');
 Route::post('/inscription', [ConnectController::class, 'handleInscription'])->name('handleInscription');
