@@ -9,7 +9,7 @@
 </head>
 <body class="body-connect">
     <div class="log-card">
-        <img class="img-card" src="images/img_conn.jpg" alt="">
+        <img class="img-card" src="images/fond.jpg" alt="">
         @yield('content')
     </div>
 </body>
