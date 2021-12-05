@@ -11,7 +11,11 @@ class Ville extends Model
     use HasFactory;
 
     public function code_postaux(){
-        $this->hasMany(CodePostal::class, 'refVille', 'idVille');
+        return $this->hasMany(CodePostal::class, 'refVille', 'idVille');
+    }
+
+    public function immeubles(){
+        return $this->hasMany(Immeuble::class, 'refVille', 'idVille');
     }
 
     public function departement(){

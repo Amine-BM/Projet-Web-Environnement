@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class DegreIsolation extends Model
 {
     use HasFactory;
+
+    public function immeubles(){
+       return $this->hasMany(Immeuble::class, 'refDegreIsolation', 'idDegreIsolation');
+    }
+
 }
