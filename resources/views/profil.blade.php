@@ -1,4 +1,4 @@
 @extends('layouts.app')
 @section('content')
-    <h1>Accueil</h1>
+    <h1>Profil</h1>
 @endsection

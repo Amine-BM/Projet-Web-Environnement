@@ -23,6 +23,7 @@
             <div>
                 <img class="im" src="images/Amine.png" alt="photo Amine">
             </div>
+
             <div class="title">
                 Amine Chebah
                     CEO
