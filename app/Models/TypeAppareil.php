@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Appareil;
 use App\Models\Ressource;
 use App\Models\Substance;
 use Illuminate\Database\Eloquent\Model;
@@ -16,5 +17,9 @@ class TypeAppareil extends Model
     }
     public function substances(){
         return $this->belongsToMany(Substance::class, 'substance_typeappareil', 'refTypeAppareil', 'refSubstance');
+    }
+
+    public function appareils(){
+        return $this->hasMany(Appareil::class, 'refTypeAppareil', 'idTypeAppareil');
     }
 }

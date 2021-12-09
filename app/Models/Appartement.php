@@ -25,6 +25,6 @@ class Appartement extends Model
     }
 
     public function users(){
-        return $this->belongsToMany(Appartement::class, 'user_immeuble', 'refAppartement', 'refUtilisateur');
+        return $this->belongsToMany(Appartement::class, 'user_appartement', 'refAppartement', 'refUtilisateur');
     }
 }

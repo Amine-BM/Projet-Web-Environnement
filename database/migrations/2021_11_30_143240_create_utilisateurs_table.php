@@ -25,7 +25,7 @@ class CreateUtilisateursTable extends Migration
             $table->string('motDePasse');
             $table->boolean('admin');
             $table->string('login');
-            $table->string('proprietaire');
+            $table->boolean('proprietaire');
             $table->timestamps();
         });
     }
