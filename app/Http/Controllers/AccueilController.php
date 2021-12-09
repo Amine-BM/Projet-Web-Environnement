@@ -3,8 +3,12 @@
 namespace App\Http\Controllers;
 
 class AccueilController {
-    public function welcolme(){
+    public function welcome(){
         return view('welcome');
+    }
+    
+    public function accueil(){
+        return view('accueil');
     }
 
     public function connexion(){
