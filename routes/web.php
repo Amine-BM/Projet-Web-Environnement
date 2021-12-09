@@ -15,14 +15,14 @@ use App\Http\Controllers\ConnectController;
 |
 */
 
-Route::get('/welcome', function() {return view('welcome');});
-Route::get('/accueil', [AccueilController::class, 'welcolme'])->name('accueil');
+Route::get('/', [AccueilController::class, 'welcome'])->name('welcome');
+Route::get('/accueil', [AccueilController::class, 'accueil'])->name('accueil');
 
 Route::get('/inscription', [ConnectController::class, 'inscription'])->name('inscription');
 Route::post('/inscription', [ConnectController::class, 'handleInscription'])->name('handleInscription');
 
-Route::get('/', [ConnectController::class, 'connexion'])->name('connect');
-Route::post('/', [ConnectController::class, 'handleConnexion'])->name('handleConnexion');
+// Route::get('/', [ConnectController::class, 'connexion'])->name('connect');
+// Route::post('/', [ConnectController::class, 'handleConnexion'])->name('handleConnexion');
 
 
 Route::get('/test', function() {return view('test');});
@@ -52,8 +52,6 @@ Route::get('/suppContrat', [AccueilController::class, 'suppContrat'])->name('sup
 Route::get('/suppImmeuble', [AccueilController::class, 'suppImmeuble'])->name('suppImmeuble');
 Route::get('/suppAppartement', [AccueilController::class, 'suppAppartement'])->name('suppAppartement');
 Route::get('/suppPiece', [AccueilController::class, 'suppPiece'])->name('suppPiece');
-
-
 
 
 
