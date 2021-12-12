@@ -15,13 +15,12 @@ use App\Http\Controllers\ConnectController;
 |
 */
 
-Route::get('/welcome', function() {return view('welcome');});
-Route::get('/accueil', [AccueilController::class, 'welcolme'])->name('accueil');
+Route::get('/accueil', [AccueilController::class, 'welcome'])->name('accueil');
 
 Route::get('/inscription', [ConnectController::class, 'inscription'])->name('inscription');
 Route::post('/inscription', [ConnectController::class, 'handleInscription'])->name('handleInscription');
 
-Route::get('/', [ConnectController::class, 'connexion'])->name('connect');
+Route::get('/', [AccueilController::class, 'welcolme'])->name('welcome');
 Route::post('/', [ConnectController::class, 'handleConnexion'])->name('handleConnexion');
 
 
