@@ -1,7 +1,56 @@
-@extends('dashboard')
+<x-guest-layout>
+    <x-jet-authentication-card>
+        <x-slot name="logo">
+            <x-jet-authentication-card-logo />
+        </x-slot>
 
-@section('content')
-    <h1>Ajout Appareil</h1>
+        <x-jet-validation-errors class="mb-4" />
 
-    
-@endsection
+        <form method="POST" action="{{ route('register') }}">
+            @csrf
+
+            <div>
+                <x-jet-label for="name" value="Libelle" />
+                <x-jet-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
+            </div>
+
+            <div>
+                <x-jet-label for="name" value="Piece" />
+                <x-jet-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
+            </div>
+
+            <div>
+                <x-jet-label for="name" value="Type Appareil" />
+                <x-jet-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
+            </div>
+
+            <div>
+                <x-jet-label for="name" value="Consommation" />
+                <x-jet-input id="name" class="block mt-1 w-full" type="number" name="name" :value="old('name')" required autofocus autocomplete="name" />
+            </div>
+
+            <div>
+                <x-jet-label for="name" value="Emission" />
+                <x-jet-input id="name" class="block mt-1 w-full" type="number" name="name" :value="old('name')" required autofocus autocomplete="name" />
+            </div>
+
+            <div>
+                <x-jet-label for="name" value="Emplacement" />
+                <x-jet-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
+            </div>
+
+            <div class="flex items-center justify-end mt-4">
+
+                <a class="mr-40" href="{{route('dashboard')}}"> Retour </a>
+
+
+                <x-jet-button class="ml-4">
+                    enregistrer
+                </x-jet-button>
+
+                
+                
+            </div>
+        </form>
+    </x-jet-authentication-card>
+</x-guest-layout>

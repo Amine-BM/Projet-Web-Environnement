@@ -189,6 +189,8 @@ class AccueilController {
         return view('suppPiece');
     }
 
-
+    public function welcome(){
+        return view('welcome');
+    }
 
 }
