@@ -11,7 +11,11 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class TypeAppareil extends Model
 {
     use HasFactory;
+    protected $primaryKey = 'idTypeAppareil';
 
+    protected $fillable = [
+        'libelle',
+    ];
     public function ressources(){
         return $this->belongsToMany(Ressource::class, 'ressource_typeappareil', 'refTypeAppareil', 'refRessource');
     }

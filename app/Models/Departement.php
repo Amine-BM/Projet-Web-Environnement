@@ -10,9 +10,9 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class Departement extends Model
 {
     use HasFactory;
-
+    protected $primaryKey = 'codeDepartement';
     public function villes(){
-        return $this->hasMany(Ville::class, 'refDepartement', 'idDepartement');
+        return $this->hasMany(Ville::class, 'refDepartement', 'codeDepartement');
     }
 
     public function region(){

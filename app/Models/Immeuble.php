@@ -12,6 +12,20 @@ class Immeuble extends Model
 {
     use HasFactory;
 
+    protected $primaryKey = 'idImmeuble';
+
+    protected $fillable = [
+        'nombreEtage',
+        'nombreAppartement',
+        'anneeConstruction',
+        'nom',
+        'evaluationEcoImmeuble',
+        'nomRue',
+        'numeroMaison',
+        'refVille',
+        'RefDegreIsolation'
+    ];
+
     public function ville(){
         return $this->belongsTo(Ville::class);
     }
@@ -25,6 +39,6 @@ class Immeuble extends Model
     }
 
     public function users(){
-        return $this->belongsToMany(User::class, 'user_immeuble', 'refImmeuble', 'refUtilisateur');
+        return $this->belongsToMany(User::class, 'user_immeuble', 'refImmeuble', 'refUtilisateur')->withPivot('dateDebut', 'dateFin');
     }
 }

@@ -12,8 +12,23 @@ class Appartement extends Model
 {
     use HasFactory;
 
+    protected $primaryKey = 'idAppartement';
+
+    protected $fillable = [
+        'surface',
+        'nombrePiece',
+        'numeroBoite',
+        'refImmeuble',
+        'refTypeAppartement',
+        'RefDegreSecurite',
+    ];
+
     public function typeAppartement(){
         return $this->belongsTo(TypeAppartement::class);
+    }
+
+    public function pieces(){
+        return $this->hasMany(Piece::class, 'refAppartement', 'idAppartement');
     }
 
     public function immeuble(){
@@ -25,6 +40,12 @@ class Appartement extends Model
     }
 
     public function users(){
-        return $this->belongsToMany(Appartement::class, 'user_appartement', 'refAppartement', 'refUtilisateur');
+        return $this->belongsToMany(Appartement::class, 'user_appartement', 'refAppartement', 'refUtilisateur')->withPivot('dateDebut', 'dateFin', 'nombreHabitant');
     }
+
+    /**
+     * The roles that belong to the Appartement
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
 }

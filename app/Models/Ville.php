@@ -10,6 +10,7 @@ class Ville extends Model
 {
     use HasFactory;
 
+    protected $primaryKey = 'idVille';
     public function code_postaux(){
         return $this->hasMany(CodePostal::class, 'refVille', 'idVille');
     }

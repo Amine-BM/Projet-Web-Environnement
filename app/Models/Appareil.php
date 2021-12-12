@@ -13,6 +13,17 @@ class Appareil extends Model
 {
     use HasFactory;
 
+    protected $primaryKey = 'idAppareil';
+
+    protected $fillable = [
+        'libelle',
+        'consommationHeure',
+        'emissionHeure',
+        'emplacement',
+        'refPiece',
+        'refTypeAppareil',
+    ];
+
     public function typeAppareil(){
         return $this->belongsTo(TypeAppareil::class);
     }
