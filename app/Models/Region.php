@@ -10,7 +10,7 @@ class Region extends Model
 {
     use HasFactory;
 
-    //protected $fillable = ['nomRegion'];
+    protected $primaryKey = 'idRegion';
 
     public function departements(){
         return $this->hasMany(Departement::class, 'refRegion', 'idRegion');

@@ -14,9 +14,8 @@ class CreateDepartementsTable extends Migration
     public function up()
     {
         Schema::create('departements', function (Blueprint $table) {
-            $table->id('idDepartement');  
+            $table->string('codeDepartement')->primary();  
             $table->string('nomDepartement');
-            $table->integer('codeDepartement');
 
             $table->unsignedBigInteger('refRegion');
             $table->foreign('refRegion')->references('idRegion')->on('regions');

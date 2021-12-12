@@ -1,7 +1,11 @@
 <x-guest-layout>
     <x-jet-authentication-card>
         <x-slot name="logo">
-            <x-jet-authentication-card-logo />
+            <div class="flex-shrink-0 flex items-center">
+                <a href="{{ route('welcome') }}">
+                    <img class="block h-12 w-full rounded rounded-full" src="/images/dragon.jpg" alt="">
+                </a>
+            </div>
         </x-slot>
 
         <x-jet-validation-errors class="mb-4" />
@@ -10,8 +14,18 @@
             @csrf
 
             <div>
-                <x-jet-label for="name" value="{{ __('Name') }}" />
+                <x-jet-label for="name" value="{{ __('Nom') }}" />
                 <x-jet-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
+            </div>
+
+            <div class="mt-4">
+                <x-jet-label for="prenom" value="{{ __('Prénom') }}" />
+                <x-jet-input id="prenom" class="block mt-1 w-full" type="text" name="prenom" :value="old('prenom')" required autofocus autocomplete="prenom" />
+            </div>
+
+            <div class="mt-4">
+                <x-jet-label for="login" value="{{ __('Login') }}" />
+                <x-jet-input id="login" class="block mt-1 w-full" type="text" name="login" :value="old('login')" required autofocus autocomplete="login" />
             </div>
 
             <div class="mt-4">
@@ -27,6 +41,33 @@
             <div class="mt-4">
                 <x-jet-label for="password_confirmation" value="{{ __('Confirm Password') }}" />
                 <x-jet-input id="password_confirmation" class="block mt-1 w-full" type="password" name="password_confirmation" required autocomplete="new-password" />
+            </div>
+
+            <div class="flex flex-row justify-between">
+                <div class="mt-4">
+                    <x-jet-label for="genre" value="{{ __('Genre') }}" />
+                    <SELECT name="genre" size="1">
+                        <OPTION>M
+                        <OPTION>F
+                    </SELECT>
+                </div>
+                <div class="mt-4">
+                    <x-jet-label for="birth" value="{{ __('Date de naissance') }}" />
+                    <x-jet-input id="birth" class="block mt-1 w-full" type="date" name="birth" :value="old('birth')" required />
+                </div>
+            </div>
+
+            <div class="mt-4">
+                <x-jet-label for="tel" value="{{ __('Numéro de téléphone') }}" />
+                <x-jet-input id="tel" class="block mt-1 w-full" type="number" name="tel" :value="old('tel')" required />
+            </div>
+
+            <div class="mt-4">
+                <x-jet-label for="owner" value="{{ __('Êtes-vous propriétaire ?') }}" />
+                <SELECT name="owner" size="1">
+                    <OPTION>Yes
+                    <OPTION>No
+                </SELECT>
             </div>
 
             @if (Laravel\Jetstream\Jetstream::hasTermsAndPrivacyPolicyFeature())
