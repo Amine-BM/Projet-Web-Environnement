@@ -17,8 +17,8 @@ class CreateVillesTable extends Migration
             $table->id('idVille');
             $table->string('nomVille');
 
-            $table->unsignedBigInteger('refDepartement');
-            $table->foreign('refDepartement')->references('idDepartement')->on('departements');
+            $table->string('refDepartement');
+            $table->foreign('refDepartement')->references('codeDepartement')->on('departements');
         });
     }
 
