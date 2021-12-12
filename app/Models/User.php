@@ -27,8 +27,14 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
+        'prenom',
+        'login',
         'email',
         'password',
+        'genre',
+        'dateDeNaissance',
+        'telephone',
+        'proprietaire'
     ];
 
     /**
@@ -62,10 +68,10 @@ class User extends Authenticatable
     ];
 
     public function immeubles(){
-        return $this->belongsToMany(Immeuble::class, 'user_immeuble', 'refUtilisateur', 'refImmeuble');
+        return $this->belongsToMany(Immeuble::class, 'user_immeuble', 'refUtilisateur', 'refImmeuble')->withPivot('dateDebut', 'dateFin');
     }
 
     public function appartements(){
-        return $this->belongsToMany(Appartement::class, 'user_appartement', 'refUtilisateur', 'refAppartemnt');
+        return $this->belongsToMany(Appartement::class, 'user_appartement', 'refUtilisateur', 'refAppartement')->withPivot('dateDebut', 'dateFin', 'nombreHabitant');
     }
 }

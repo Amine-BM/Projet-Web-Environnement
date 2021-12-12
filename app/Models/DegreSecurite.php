@@ -9,7 +9,11 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class DegreSecurite extends Model
 {
     use HasFactory;
+    protected $primaryKey = 'idDegreSecurite';
 
+    protected $fillable = [
+        'libelle'
+    ];
     public function appartements(){
         return $this->hasMany(Appartement::class, 'refDegreSecurite', 'idDegreSecurite');
     }

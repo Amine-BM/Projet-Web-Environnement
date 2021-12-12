@@ -16,11 +16,22 @@ class CreateUsersTable extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('prenom');
+            $table->string('login')->unique();
             $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');          
+            $table->string('password'); 
+            $table->string('genre');
+            $table->date('dateDeNaissance');
+            $table->integer('telephone');
+            $table->boolean('proprietaire')->default(false);
+            $table->boolean('etat')->default(false);
+            $table->boolean('admin')->default(false);
+         
             $table->foreignId('current_team_id')->nullable();
-            $table->string('profile_photo_path', 2048)->nullable();  $table->timestamps();
+            $table->string('profile_photo_path', 2048)->nullable(); 
+            $table->timestamp('email_verified_at')->nullable(); 
+            $table->timestamps();
+
         });
     }
 

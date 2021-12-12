@@ -13,7 +13,7 @@ class CreatePivotTableUserAppartement extends Migration
      */
     public function up()
     {
-        Schema::create('pivot_table_user_appartement', function (Blueprint $table) {
+        Schema::create('user_appartement', function (Blueprint $table) {
             $table->unsignedBigInteger('refUtilisateur');
             $table->foreign('refUtilisateur')->references('id')->on('users');
             
