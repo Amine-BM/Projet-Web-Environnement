@@ -15,8 +15,8 @@ class CreateGestionsTable extends Migration
     {
         Schema::create('gestions', function (Blueprint $table) {
             $table->id('idGestion');
-            $table->dateTime('heureDebut');
-            $table->dateTime('heureFin');
+            $table->timestamp('heureDebut')->nullable();
+            $table->timestamp('heureFin')->nullable();
 
             $table->unsignedBigInteger('refAppareil');
             $table->foreign('refAppareil')->references('idAppareil')->on('appareils');
