@@ -1,9 +1,12 @@
 <x-guest-layout>
     <x-jet-authentication-card>
-        <x-slot name="logo">
-            <x-jet-authentication-card-logo />
+    <x-slot name="logo">
+            <div class="flex-shrink-0 flex items-center">
+                <a href="{{ route('welcome') }}">
+                    <img class="block h-12 w-full rounded rounded-full" src="/images/dragon.jpg" alt="">
+                </a>
+            </div>
         </x-slot>
-
         <x-jet-validation-errors class="mb-4" />
 
         <form method="POST" action="{{ route('register') }}">
