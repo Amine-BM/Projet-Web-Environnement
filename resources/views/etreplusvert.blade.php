@@ -1,3 +1,4 @@
+
 @extends('dashboard')
 @section('content')
     <h1>Liste de vidéos pour etre plus vert</h1>

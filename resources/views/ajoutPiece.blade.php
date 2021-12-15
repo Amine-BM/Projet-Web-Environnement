@@ -1,4 +1,3 @@
-
 @extends('dashboard')
 @section('content')
     <h1>J'ajoute une pièce à mon appartement</h1>
@@ -6,32 +5,36 @@
         <h2>Vous n'avez aucun appartement enregistré</h2>
         <h3>Veuillez d'abord ajouter un appartement pour pouvoir ajouter une pièce</h3>
     @else
-        <SELECT name="appartement" size="1">
-            @foreach ($appartement as $app)
-                <OPTION id="{{$app->idAppartement}}" >{{$app->numeroBoite}}
-            @endforeach
-        </SELECT>
         <h2>Vous pouvez ajouter un appartement</h2>
     @endif
     <x-guest-layout>
         <x-jet-authentication-card>
-            <x-slot name="logo">
-                <x-jet-authentication-card-logo />
-            </x-slot>
+        <x-slot name="logo">
+            <div class="flex-shrink-0 flex items-center">
+                <a href="{{ route('welcome') }}">
+                    <img class="block h-12 w-full rounded rounded-full" src="/images/dragon.jpg" alt="">
+                </a>
+            </div>
+        </x-slot>
+        <x-jet-validation-errors class="mb-4" />
+           
 
-            <x-jet-validation-errors class="mb-4" />
-
-            <form method="POST" action="{{ route('register') }}">
+            <form method="POST" action="{{ route('storePiece') }}">
                 @csrf
 
                 <div>
                     <x-jet-label for="Libelle" value="Libelle" />
+                    
                     <x-jet-input id="Libelle" class="block mt-1 w-full" type="text" name="Libelle" :value="old('Libelle')" required autofocus autocomplete="Libelle" />
                 </div>
 
                 <div>
-                    <x-jet-label for="Numéro Appartement" value="Numéro Appartement" />
-                    <x-jet-input id="Numéro Appartement" class="block mt-1 w-full" type="number" name="Numéro Appartement" :value="old('Numéro Appartement')" required autofocus autocomplete="name" />
+                    <label>Numéro Appartement</label>
+                     <SELECT name="appartement" size="1">
+                     @foreach ($appartement as $app)
+                        <OPTION id="{{$app->idAppartement}}" >{{$app->numeroBoite}}
+                     @endforeach
+                     </SELECT>
                 </div>
 
                 <div>
@@ -44,12 +47,9 @@
                         Retour
                     </a>
 
-
                     <x-jet-button class="ml-4">
                         enregistrer
                     </x-jet-button>
-
-
 
                 </div>
             </form>

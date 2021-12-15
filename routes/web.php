@@ -47,7 +47,7 @@ Route::get('/ajoutAppareil', [AccueilController::class, 'ajoutAppareil'])->name(
 Route::post('/ajoutAppareil', [AccueilController::class, 'storeAppareil'])->name('storeAppareil');
 
 Route::get('/ajoutPiece', [AccueilController::class, 'ajoutPiece'])->name('ajoutPiece');
-Route::post('/ajoutPiece', [AccueilController::class, 'storePice'])->name('storePiece');
+Route::post('/ajoutPiece', [AccueilController::class, 'storePiece'])->name('storePiece');
 
 Route::get('/biens', [AccueilController::class, 'biens'])->name('biens');
 Route::get('/consultAppareil', [AccueilController::class, 'consultAppareil'])->name('consultAppareil');
