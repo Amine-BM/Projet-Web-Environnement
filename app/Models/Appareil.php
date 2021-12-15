@@ -14,7 +14,7 @@ class Appareil extends Model
     use HasFactory;
 
     protected $primaryKey = 'idAppareil';
-
+    public $timestamps = false;
     protected $fillable = [
         'libelle',
         'consommationHeure',

@@ -12,7 +12,7 @@ class Piece extends Model
 {
     use HasFactory;
     protected $primaryKey = 'idPiece';
-
+    public $timestamps = false;
     protected $fillable = [
         'libelle',
         'refAppartement',

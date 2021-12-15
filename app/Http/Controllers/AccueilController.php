@@ -119,11 +119,16 @@ class AccueilController {
     }
 
     public function storeAppareil(Request $request){
-        dd($request);
+        $tmp = explode(',', $request->piece);
         Appareil::create([
-
+            'libelle' => $request->libelle,
+            'consommationHeure' => $request->conso,
+            'emissionHeure' => $request->emis,
+            'emplacement' => $request->emplacement,
+            'refPiece' => $tmp[3],
+            'refTypeAppareil' => $request->type
         ]);
-        dd('appareil créé');
+        return view('dashboard');
     }
 
     public function ajoutPiece(Request $request){
@@ -135,11 +140,12 @@ class AccueilController {
     }
 
     public function storePiece(Request $request){
-        dd($request);
         Piece::create([
-
+            'libelle' => $request->Libelle,
+            'refAppartement' => $request->appartement,
+            'refTypePiece' => $request->typePiece
         ]);
-        dd('piece créé');
+        return view('dashboard');
     }
 
     public function biens(Request $request){

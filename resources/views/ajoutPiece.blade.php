@@ -28,18 +28,22 @@
                     <x-jet-input id="Libelle" class="block mt-1 w-full" type="text" name="Libelle" :value="old('Libelle')" required autofocus autocomplete="Libelle" />
                 </div>
 
-                <div>
+                <div class="mt-4">
                     <label>Numéro Appartement</label>
                      <SELECT name="appartement" size="1">
                      @foreach ($appartement as $app)
-                        <OPTION id="{{$app->idAppartement}}" >{{$app->numeroBoite}}
+                        <OPTION id="{{$app->idAppartement}}" >{{$app->idAppartement}}
                      @endforeach
                      </SELECT>
                 </div>
 
-                <div>
-                    <x-jet-label for="name" value="Type pièce" />
-                    <x-jet-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
+                <div class="mt-4">
+                    <label>Type piece</label>
+                     <SELECT name="typePiece" size="1">
+                     @foreach ($typePiece as $tp)
+                        <OPTION id="{{$tp->idTypePiece}}" >{{$tp->idTypePiece}}
+                     @endforeach
+                     </SELECT>
                 </div>
 
                 <div class="flex items-center justify-end mt-4">

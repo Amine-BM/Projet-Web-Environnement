@@ -46,11 +46,6 @@
 <h2>Vous n'avez aucun appareil enregistré</h2>
 <h3>Veuillez d'abord ajouter un appareil pour pouvoir faire une simulation</h3>
 @else
-<SELECT name="appareils" size="1">
-    @foreach ($appareils as $app)
-    <OPTION id="{{$app->idAppareil}}">{{$app->emplacement}}
-        @endforeach
-</SELECT>
 <h2>Vous pouvez ajouter un appareil</h2>
 @endif
 

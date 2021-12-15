@@ -25,43 +25,52 @@
 
             <div>
                 <x-jet-label for="name" value="Libelle" />
-                <x-jet-input id="libele" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
-            </div>
-
-            <div>
-                <x-jet-label for="name" value="Piece" />
-                <x-jet-input id="pice" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
-            </div>
-
-            <div>
-                <x-jet-label for="name" value="Type Appareil" />
-                <x-jet-input id="typeAppareil" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
+                <x-jet-input id="libelle" class="block mt-1 w-full" type="text" name="libelle" :value="old('libelle')" required autofocus autocomplete="libelle" />
             </div>
 
             <div>
                 <x-jet-label for="name" value="Consommation" />
-                <x-jet-input id="conso" class="block mt-1 w-full" type="number" name="name" :value="old('name')" required autofocus autocomplete="name" />
+                <x-jet-input id="conso" class="block mt-1 w-full" type="number" name="conso" :value="old('conso')" required autofocus autocomplete="conso" />
             </div>
 
             <div>
                 <x-jet-label for="name" value="Emission" />
-                <x-jet-input id="emis" class="block mt-1 w-full" type="number" name="name" :value="old('name')" required autofocus autocomplete="name" />
+                <x-jet-input id="emis" class="block mt-1 w-full" type="number" name="emis" :value="old('emis')" required autofocus autocomplete="emis" />
             </div>
 
             <div>
             
             <label for="name">Emplacement</label>
-             <textarea id="emplacement" name="name" class="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm block mt-1 w-full"
+             <textarea id="emplacement" name="emplacement" class="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm block mt-1 w-full"
                ></textarea>
              </div> 
 
-             <SELECT class="mt-4" name="piece" size="1">
-                @foreach ($pieces as $p1)
-                    @foreach ($p1 as $p2)
-                        <OPTION id="{{$p2->idPiece}}" >{{"Appartemnt " . $p2->refAppartement . " Piece " . $p2->idPiece}}
-                    @endforeach
-                @endforeach
-            </SELECT>
+             <div>
+                <label class="mt-4" for="">liste des pièces par appartement</label>
+                <SELECT name="piece" size="1">
+                   @foreach ($pieces as $p1)
+                       @foreach ($p1 as $p2)
+                           <OPTION id="{{$p2->idPiece}}" >{{"Appartemnt," . $p2->refAppartement . ",Piece," . $p2->idPiece}}
+                       @endforeach
+                   @endforeach
+               </SELECT>
+             </div>
+
+             <div class="flex flex-c">
+                 <div>
+                    <label class="mt-4" for="">liste des types appareils</label>
+                 </div>
+                
+                 <div>
+                    <SELECT name="type" size="1">
+                        @foreach ($typeAppareil as $tp)
+                             <OPTION id="{{$tp->idTypeAppareil}}" >{{$tp->idTypeAppareil}}
+                        @endforeach
+                    </SELECT>
+                 </div>
+
+             </div>
+
 
             <div class="flex items-center justify-start mt-4">
 
