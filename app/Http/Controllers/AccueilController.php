@@ -9,6 +9,9 @@ use App\Models\TypePiece;
 use App\Models\Appartement;
 use App\Models\TypeAppareil;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use ArielMejiaDev\LarapexCharts\LarapexChart;
+use ArielMejiaDev\LarapexCharts\Facades\LarapexChart as FacadesLarapexChart;
 
 class AccueilController {
     public function welcome(){
@@ -82,7 +85,7 @@ class AccueilController {
     }
 
     public function storeSimulation(Request $request){
-        dd($request->nom);
+        dd($request);
         
         dd('gestion créé');
     }
@@ -157,8 +160,27 @@ class AccueilController {
         return view('consultConsoAppareil');
     }
 
-    public function consultConsoAppartement(){
-        return view('consultConsoAppartement');
+    public function consultConsoAppartement(Request $request){
+        $pieces = array(); // toutes les pièces de chacun des appartements du user
+        $appartement = $request->user()->appartements;
+        $conso = array();
+        $results = DB::select(DB::raw('SELECT idPiece, SUM(emissionHeure*(TIMEDIFF(heureFin, heureDebut)/3600)) AS conso
+        FROM gestions INNER JOIN appareils ON refAppareil=idAppareil INNER JOIN pieces ON refpiece=idPiece
+        WHERE refAppartement=1
+        GROUP BY idPiece;'));
+        if($appartement != null){
+            foreach($appartement as $app){
+                $tmp = $app->pieces;
+                if($tmp->count() > 0 ){
+                    array_push($pieces, $tmp); // tableau à 2 dimensions
+                }
+            }
+        }
+        $chart = (new LarapexChart)->setTitle('Consommation')
+            ->setXAxis(['Active users', 'Blocked users'])
+            ->setDataset([(int) $results[0]->conso, (int) $results[1]->conso])
+            ->setLabels(['Consommation Piece 1', 'Consommation piece 2']);
+        return view('consultConsoAppartement', compact('chart'));
     }
 
     public function consultConsoImmeuble(){
