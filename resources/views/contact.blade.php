@@ -1,7 +1,8 @@
+
 @extends('dashboard')
 @section('content')
 <div class="p-8">
-    <h1 class="titre">Contactez-nous</h1>
+    <center><h1 class="titre">Contactez-nous</h1></center>
     <div class="p-4 flex flex-row justify-between">
         <div class="mt-8 ml-28 ">
             <img class="im" src="images/maroua.png" alt="photo Maroua">
@@ -31,15 +32,17 @@
         </div>
     </div>
 <div class="p-8">
-    <div class="flex flex-row">
-        <div class="flex flex-column">
+    <div class="flex flex-row justify-between">
+        <div class="mt-8 ml-16 ">
+        <div class="flex flex-column justify-between">
             <div class="mt-8 mr-16">
                 <img class="w-12 h-12" src="images/email.jpg" alt="icon mail">
                 <a href ="Controle.de.qualite.de.citoyennete@gouv.fr">
                 <div class="title">
                     Contrôle de Qualité de Citoyenneté
-                </div>
-            <div class="mt-8 mr-16">
+                </div> 
+            </div>
+            <div class="mt-8 ml-42">
                 <img class="w-12 h-12" src="images/tele.png" alt="icon telephone">
                 <a href ="Controle.de.qualite.de.citoyennete@gouv.fr">
                 <div class="title">

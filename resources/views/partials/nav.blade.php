@@ -5,10 +5,13 @@
 
     .navBar{
         display: flex; justify-content:center; width:100%; height: auto;
+        background-color:#9ACD32 ;
+       
     }
 
     .navB{
-        display: flex; justify-content:flex-start; width:95%; background-color: whitesmoke; border-radius: 4px; margin: 24px;
+        display: flex; justify-content:flex-start; width:95%; 
+        background-color:  whitesmoke;border-radius: 4px; margin: 24px;
 }
 
 .dropbtn {
