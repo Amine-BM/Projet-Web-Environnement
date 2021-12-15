@@ -6,11 +6,6 @@
         <h2>Vous n'avez aucune pièce enregistrée</h2>
         <h3>Veuillez d'abord ajouter une pièce pour pouvoir ajouter un appareil</h3>
     @else
-        <SELECT name="piece" size="1">
-            @foreach ($pieces as $app)
-                <OPTION id="{{$app->idPiece}}" >{{$app->idPiece}}
-            @endforeach
-        </SELECT>
         <h2>Vous pouvez ajouter une pièce</h2>
     @endif
     <x-guest-layout>
@@ -59,6 +54,14 @@
              <textarea id="emplacement" name="name" class="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm block mt-1 w-full"
                ></textarea>
              </div> 
+
+             <SELECT class="mt-4" name="piece" size="1">
+                @foreach ($pieces as $p1)
+                    @foreach ($p1 as $p2)
+                        <OPTION id="{{$p2->idPiece}}" >{{"Appartemnt " . $p2->refAppartement . " Piece " . $p2->idPiece}}
+                    @endforeach
+                @endforeach
+            </SELECT>
 
             <div class="flex items-center justify-start mt-4">
 
