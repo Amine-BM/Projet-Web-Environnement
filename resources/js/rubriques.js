@@ -1,4 +1,0 @@
-function mouseOver() {
-    
-    alert("bonjour !");
-}

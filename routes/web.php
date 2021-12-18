@@ -20,16 +20,6 @@ use App\Http\Controllers\ConnectController;
 Route::get('/', [AccueilController::class, 'welcome'])->name('welcome');
 Route::get('/accueil', [AccueilController::class, 'accueil'])->name('accueil');
 
-Route::get('/inscription', [ConnectController::class, 'inscription'])->name('inscription');
-Route::post('/inscription', [ConnectController::class, 'handleInscription'])->name('handleInscription');
-
-
-// Route::get('/', [ConnectController::class, 'connexion'])->name('connect');
-// Route::post('/', [ConnectController::class, 'handleConnexion'])->name('handleConnexion');
-
-
-Route::get('/test', function() {return view('test');});
-
 
 Route::get('/contact', [AccueilController::class, 'contact'])->name('contact');
 Route::get('/maisons', [AccueilController::class, 'maisons'])->name('maisons');
@@ -57,8 +47,6 @@ Route::get('/consultConsoImmeuble', [AccueilController::class, 'consultConsoImme
 Route::get('/creaAppartement', [AccueilController::class, 'creaAppartement'])->name('creaAppartement');
 Route::get('/creaImmeuble', [AccueilController::class, 'creaImmeuble'])->name('creaImmeuble');
 Route::get('/profil', [AccueilController::class, 'profil'])->name('profil');
-
-// Route::get('/simulation', [AccueilController::class, 'simulation'])->name('simulation');
 
 Route::get('/ajoutContrat', [AccueilController::class, 'ajoutContrat'])->name('ajoutContrat');
 Route::get('/suppContrat', [AccueilController::class, 'suppContrat'])->name('suppContrat');
